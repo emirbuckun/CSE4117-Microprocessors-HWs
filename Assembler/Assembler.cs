@@ -54,9 +54,9 @@ public class Assembler
                     counter++;
 
                     if (op2.StartsWith("0x"))
-                        program[counter] = (Hex2Int(op2[2..]) & 0x0fff).ToString("X4");
+                        program[counter] = (Hex2Int(op2[2..]) & 0xffff).ToString("X4");
                     else if (op2[0] == '-' || char.IsDigit(op2[0]))
-                        program[counter] = (int.Parse(op2) & 0x0fff).ToString("X4");
+                        program[counter] = (int.Parse(op2) & 0xffff).ToString("X4");
                     else
                         Console.WriteLine("unrecognizable LDI offset");
 
