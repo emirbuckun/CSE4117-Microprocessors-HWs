@@ -14,9 +14,10 @@ public class BirdAssembler
     private const int OPCODE_BASE_RET = 0xB000;
 
     // File constants
-    private const string INPUT_FILE = "../Files/bird-test-input.txt";
-    private const string OUTPUT_FILE = "../Files/bird-test-output";
     private const string VERSION_HEADER = "v2.0 raw";
+    private const string FILE_NAME = "bird-test-instructions";
+    private const string INPUT_FILE = $"../Files/Bird/{FILE_NAME}-input.txt";
+    private const string OUTPUT_FILE = $"../Files/Bird/{FILE_NAME}-output";
 
     // AluOp1 for the instructions with 3 operands (ADD, SUB, AND, OR, XOR)
     // AluOp2 for the instructions with 2 or less operands (NOT, MOV, INC, DEC)
