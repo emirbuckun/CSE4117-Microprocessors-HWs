@@ -1,5 +1,5 @@
-﻿namespace Assembler;
-public class Assembler
+﻿namespace FrogAssembler;
+public class FrogAssembler
 {
     // to increase registers to 8, two alu codes are used
     // AluOp1 for the instructions with 3 operands (ADD, SUB, AND, OR, XOR)
@@ -29,7 +29,7 @@ public class Assembler
 
         try
         {
-            using StreamReader reader = new("myprog.txt");
+            using StreamReader reader = new("../Files/myprog.txt");
             while ((line = reader.ReadLine()!) != null)
             {
                 // Split the line into tokens
@@ -218,7 +218,7 @@ public class Assembler
             return;
         }
 
-        using StreamWriter writer = new("RAM");
+        using StreamWriter writer = new("../Files/RAM");
         writer.WriteLine("v2.0 raw");
         for (int i = 0; i < counter; i++)
             writer.WriteLine(program[i]);
