@@ -1,0 +1,30 @@
+LDI R7 1000
+LDI R1 1
+LDI R2 1
+LDI R6 10
+CALL func
+JMP exit
+func:
+PUSH R6
+PUSH R2
+PUSH R1
+LDI R3 0
+ADD R0 R1 R2
+INC R3
+INC R3
+startloop:
+SUB R4 R6 R3
+JZ loopend
+MOV R5 R2
+ADD R4 R2 R1
+MOV R1 R5
+MOV R2 R4
+ADD R0 R0 R2
+INC R3
+JMP startloop
+loopend:
+POP R1
+POP R2
+POP R6
+RET
+exit:
