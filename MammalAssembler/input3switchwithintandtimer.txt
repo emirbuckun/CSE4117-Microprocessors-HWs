@@ -1,0 +1,72 @@
+.data
+.code
+        ldi 7 1000
+        ldi 6 0
+        ldi 0 2032
+        ldi 1 isr0
+        st 0 1
+        ldi 0 2034
+        ldi 1 isr2
+        st 0 1
+        ldi 0 2035
+        ldi 1 isr3
+        st 0 1
+        sti
+loop:   ldi 0 2049
+        ld 1 0
+        ldi 2 1
+        and 3 2 1
+        jz loop
+        ldi 0 2048
+        ld 1 0
+        add 6 6 1
+        ldi 0 2816
+        st 0 6
+        jmp loop
+isr0:   push 0
+        push 1
+        ldi 0 3328
+        ld 1 0
+        ldi 0 3072
+        st 0 1
+        pop 1
+        pop 0
+        sti
+        iret
+isr2:   push 0
+        push 1
+        ldi 0 2304
+        ld 1 0
+        sub 6 6 1
+        ldi 0 2816
+        st 0 6
+        pop 1
+        pop 0
+        sti
+        iret
+isr3:   push 0
+        push 1
+        push 2
+        push 3
+        ldi 0 2560
+        ld 1 0
+        mov 4 1
+        jz exit1
+        mov 2 1
+        dec 2
+        jz exit2
+        mov 3 6
+forloop:    add 6 6 3
+            dec 2
+            jz endloop
+            jmp forloop
+endloop:    jmp exit2
+exit1:      ldi 6 0
+exit2:      ldi 0 2816
+            st 0 6
+            pop 3
+            pop 2
+            pop 1
+            pop 0
+            sti
+            iret

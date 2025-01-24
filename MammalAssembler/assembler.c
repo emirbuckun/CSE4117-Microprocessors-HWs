@@ -65,7 +65,7 @@ int main() {
     //modified when we discover the address of the label or variable that it uses.
     struct label_or_variable lditable[100];
     int noofldis = 0;
-    fp = fopen("1-to-N.txt", "r");
+    fp = fopen("input.txt", "r");
     if (fp != NULL) {
         while (fgets(line, sizeof line, fp) != NULL) //skip till .code section
         {
